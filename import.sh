@@ -1,15 +1,36 @@
 #!/bin/bash
+
+# 
+# konffaus (tietokanta- ja tiedostonimet)
+#
+dbname=trafi
+koodistocsv=koodisto.csv
+datacsv=data.csv
+
+#
+# koodi alkaa tästä
+#
+
+requirefile() {
+	if [ ! -e $1 ]; then
+		echo "$1: file does not exist"
+		exit 1
+	fi
+}
+
 cmd="true"
-postcmd="psql trafi"
+postcmd="psql $dbname"
 if [ "$1" = '--sql' ]; then
 	postcmd="cat"
 	shift
 fi
 if [ "$1" = "autot" -o "$1" = "all" ]; then
-	cmd="$cmd && cat autot.sql data.csv && echo '\.'"
+	requirefile $datacsv
+	cmd="$cmd && cat autot.sql $datacsv && echo '\.'"
 fi
 if [ "$1" = "koodit" -o "$1" = "all" ]; then
-	cmd="$cmd && cat koodisto.sql && (tr -d '\r' < 14931-Koodisto.csv) && echo -e '\n\\.'"
+	requirefile $koodistocsv
+	cmd="$cmd && cat koodisto.sql && (tr -d '\r' < $koodistocsv) && echo -e '\n\\.'"
 	cmd="$cmd && cat prosessoi_koodit.sql"
 fi
 if [ "$1" = "indeksit" -o "$1" = "all" ]; then

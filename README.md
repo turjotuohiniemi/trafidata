@@ -7,14 +7,16 @@ Käyttöohjeet
 ------------
 
 1. Luo trafi-niminen tietokanta sekä kytke PLpg/SQL-kieli käyttöön. Voit käyttää esimerkiksi seuraavia komentoja:
-```
+
+  ```
 createdb -E utf-8 trafi
 createlang plpgsql trafi
-```
+  ```
 2. Lataa csv-muotoinen aineisto Trafin sivuilta niin, että lopputuloksena hakemistossa on data.csv-niminen tiedosto. Tätä kirjoittaessa aineiston kotisivu on http://www.trafi.fi/palvelut/avoin_data
 3. Lataa "datassa käytetty koodisto", joka on xls-tiedosto. Avaa se Excelissä ja tallenna csv-muotoon. Valitse tallennuksen yhteydessä merkistöksi utf-8 ja talenna nimellä koodisto.csv.
 4. Aja nyt seuraava komento:
-```
+
+  ```
 ./import.sh all
-```
-Komento luo tarvittavat tietokantataulut sekä ajaa sisällön niihin. Suoritus saattaa kestää jonkin aikaa (puoli tuntia lienee yleinen suoritusaika).
+  ```
+  Komento luo tarvittavat tietokantataulut sekä ajaa sisällön niihin. Suoritus saattaa kestää jonkin aikaa (puoli tuntia lienee yleinen suoritusaika).

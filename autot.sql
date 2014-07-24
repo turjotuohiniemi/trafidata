@@ -1,0 +1,37 @@
+DROP TABLE IF EXISTS autot;
+CREATE TABLE autot (
+  ajoneuvoluokka		TEXT,
+  ensirekisterointipvm		DATE,
+  ajoneuvoryhma			INTEGER,
+  ajoneuvonkaytto		TEXT,
+  kayttoonottopvm		TEXT,
+  vari				TEXT,
+  ovienLukumaara		INTEGER,
+  korityyppi			TEXT,
+  ohjaamotyyppi			INTEGER,
+  istumapaikkojenLkm		INTEGER,
+  omamassa			INTEGER,
+  teknSuurSallKokmassa		INTEGER,
+  tieliikSuurSallKokmassa	INTEGER,
+  ajonKokPituus			INTEGER,
+  ajonLeveys			INTEGER,
+  ajonKorkeus			INTEGER,
+  kayttovoima			TEXT,
+  iskutilavuus			INTEGER,
+  suurinNettoteho		REAL,
+  sylintereidenLkm		INTEGER,
+  ahdin				BOOLEAN,
+  merkkiSelvakielinen		TEXT,
+  mallimerkinta			TEXT,
+  vaihteisto			TEXT,
+  vaihteidenLkm			INTEGER,
+  kaupallinenNimi		TEXT,
+  voimanvalJaTehostamistapa	INTEGER,
+  tyyppihyvaksyntanro		TEXT,
+  yksittaisKayttovoima		TEXT,
+  kunta				INTEGER,
+  Co2				INTEGER,
+  jarnro			INTEGER
+);
+SET client_encoding = 'iso-8859-1';
+COPY autot FROM stdin CSV HEADER;
